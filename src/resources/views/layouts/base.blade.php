@@ -26,7 +26,8 @@
     </nav>
     <main class="py-4">
       <div class="container">
-        @yield('content')
+        <!-- ここに子テンプレートの内容が差し込まれる -->
+        @yield('content')<!--イールドと読む（生じる）-->
       </div>
     </main>
   </div>

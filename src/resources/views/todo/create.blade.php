@@ -6,11 +6,14 @@
       <div class="card">
         <div class="card-header">ToDo作成</div>
         <div class="card-body">
+          <!-- POSTでstoreへ送信 -->
           <form method="POST" action="{{ route('todo.store') }}">
+            <!-- CSRF対策（トークンを自動で埋め込む） -->
             @csrf
             <div class="form-group row">
               <label class="col-md-4 col-form-label text-md-right">ToDo入力</label>
               <div class="col-md-6">
+                <!-- 入力値はname="content"で送信される -->
                 <input type="text" class="form-control" name="content">
               </div>
             </div>
