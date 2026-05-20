@@ -15,3 +15,6 @@ Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');
 // 編集画面表示
 // 
 Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
+// 更新
+// GET＝データ取得、PUT＝データ更新
+Route::put('/todo/{id}', 'TodoController@update')->name('todo.update');

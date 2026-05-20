@@ -93,4 +93,24 @@ class TodoController extends Controller
         //第一引数＝ビューの指定、第二引数＝ビューへ渡すデータの指定
         return view('todo.edit', ['todo' => $todo]);
     }
+
+    // 更新
+    public function update(Request $request, $id)
+    {
+        // リクエスト値取得
+        // "_token" => "...",
+        // "_method" => "PUT",
+        // "content" => "フリーダム改"
+        $inputs = $request->all();
+
+        // 更新対象取得
+        // SELECT * FROM todos WHERE id = 1 LIMIT 1;
+        $todo = $this->todo->find($id);
+
+        // フォーム入力値をモデルに反映して保存
+        $todo->fill($inputs)->save();
+
+        // リダイレクト（詳細画面に戻す）
+        return redirect()->route('todo.show', $todo->id);
+    }
 }
