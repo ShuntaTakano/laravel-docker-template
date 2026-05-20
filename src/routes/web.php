@@ -12,3 +12,6 @@ Route::post('/todo', 'TodoController@store')->name('todo.store');
 // 詳細画面表示
 // /todo/{id}はルートパラメータ
 Route::get('/todo/{id}', 'TodoController@show')->name('todo.show');
+// 編集画面表示
+// 
+Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');

@@ -64,6 +64,8 @@ class TodoController extends Controller
         // 保存後、一覧画面にリダイレクト
         return redirect()->route('todo.index');
     }
+
+    // 詳細画面表示
     public function show($id)
     {
         // Todoモデルのインスタンス作成(リファクタリング)
@@ -77,5 +79,18 @@ class TodoController extends Controller
         // viewにデータを渡す（todosという名前でbladeに渡る）
         //第一引数＝ビューの指定、第二引数＝ビューへ渡すデータの指定
         return view('todo.show', ['todo' => $todo]); // 追記
+    }
+
+    // 編集画面表示
+    // TODO: ルートパラメータを引数に受け取る
+    public function edit($id)
+    {
+        // TODO: 編集対象のレコードの情報を持つTodoモデルのインスタンスを取得
+        //SELECT * FROM todos WHERE id = 3 LIMIT 1;
+        $todo = $this->todo->find($id);
+
+        // viewにデータを渡す（todosという名前でbladeに渡る）
+        //第一引数＝ビューの指定、第二引数＝ビューへ渡すデータの指定
+        return view('todo.edit', ['todo' => $todo]);
     }
 }
