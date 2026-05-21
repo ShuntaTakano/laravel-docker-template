@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TodoRequest;
 use App\Todo;
 
 
@@ -45,7 +45,7 @@ class TodoController extends Controller
     }
 
     // 新規作成処理
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         // フォームから送信された値を全て取得（連想配列）
         $inputs = $request->all(); // ←変更
@@ -95,7 +95,7 @@ class TodoController extends Controller
     }
 
     // 更新
-    public function update(Request $request, $id)
+    public function update(TodoRequest $request, $id)
     {
         // リクエスト値取得
         // "_token" => "...",

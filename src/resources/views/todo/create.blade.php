@@ -14,7 +14,11 @@
               <label class="col-md-4 col-form-label text-md-right">ToDo入力</label>
               <div class="col-md-6">
                 <!-- 入力値はname="content"で送信される -->
-                <input type="text" class="form-control" name="content">
+                <input type="text" class="form-control @if($errors->has('content')) border-danger @endif" name="content" value="">
+                <!--has('content')はcontentにエラーある？かを判定-->
+                @if($errors->has('content'))
+                  <span class="text-danger">{{ $errors->first('content') }}</span>
+                @endif
               </div>
             </div>
 
