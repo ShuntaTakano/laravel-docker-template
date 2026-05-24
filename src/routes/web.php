@@ -18,3 +18,6 @@ Route::get('/todo/{id}/edit', 'TodoController@edit')->name('todo.edit');
 // 更新
 // GET＝データ取得、PUT＝データ更新
 Route::put('/todo/{id}', 'TodoController@update')->name('todo.update');
+// 削除
+// 
+Route::delete('/todo/{id}', 'TodoController@delete')->name('todo.delete');

@@ -113,4 +113,19 @@ class TodoController extends Controller
         // リダイレクト（詳細画面に戻す）
         return redirect()->route('todo.show', $todo->id);
     }
+
+    // 削除
+    public function delete($id)
+    {
+        // 削除対象取得
+        // SELECT * FROM todos WHERE id = 1 LIMIT 1;
+        $todo = $this->todo->find($id);
+
+        // DBから削除
+        // DELETE FROM todos WHERE id = 1;
+        $todo->delete();
+
+        // リダイレクト（一覧画面へ戻る）
+        return redirect()->route('todo.index');
+    }
 }
